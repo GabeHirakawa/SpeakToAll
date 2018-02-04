@@ -2,7 +2,7 @@
 
 #define PLUGIN_NAME "Speak To All"
 #define PLUGIN_AUTHOR "Gabriel Hirakawa"
-#define PLUGIN_DESCRIPTION "Ranks Integration Plugin for the MAUL Platform"
+#define PLUGIN_DESCRIPTION "Allows admins to speak to all players on command"
 #define PLUGIN_VERSION "1.0.0"
 #define PLUGIN_URL "https://gkh.systems"
 #define UPDATE_URL "https://gkh.systems/git/SpeakToAll/update.txt"
