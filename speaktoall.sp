@@ -13,6 +13,8 @@
 #undef REQUIRE_PLUGIN
 #include <updater>
 
+#pragma newdecls required
+
 bool g_bSpeakingToAll[MAXPLAYERS + 1];
 
 public Plugin myinfo =
@@ -26,7 +28,7 @@ public Plugin myinfo =
 
 public void OnPluginStart()
 {
-  RegAdminCmd("sm_speaktoall", Command_SpeakToAll, ADMFLAG_BAN, "sm_speaktoall - Allows Admins to speak to all players ");
+  RegAdminCmd("sm_speaktoall", Command_SpeakToAll, ADMFLAG_KICK, "sm_speaktoall - Allows Admins to speak to all players ");
 }
 
 public Action Command_SpeakToAll(int client, int args)
