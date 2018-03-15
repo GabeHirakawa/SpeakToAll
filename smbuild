@@ -1,0 +1,15 @@
+Plugin(name='speaktoall', source='scripting/speaktoall')
+
+Package(name='speaktoall-base',
+        plugins=[
+        	'speaktoall'
+        ],
+)
+
+Package(name='speaktoall-release',
+        extends=['speaktoall-base'],
+        plugins=Plugins('speaktoall.sp'),
+        filegroups={
+            '.': ['LICENSE'],
+        },
+)
