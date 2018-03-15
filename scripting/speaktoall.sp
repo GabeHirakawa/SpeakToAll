@@ -35,7 +35,7 @@ public void OnPluginStart()
 	}
 	RegAdminCmd("sm_speaktoall", Command_SpeakToAll, ADMFLAG_KICK,
 	                                        "sm_speaktoall - Allows Admins to speak to all players ");
-	g_cvRoundEnd = CreateConVar("sm_speaktoall_roundend", "0", 
+	g_cvRoundEnd = CreateConVar("sm_speaktoall_roundend", "0",
 	                              "If enabled, on round end, all players will be set back to normal");
 	g_cvMuteAll = CreateConVar("sm_speaktoall_muteall", "1",
 	                 "If enabled, when an admin activates speaktoall it will mute all other players");
