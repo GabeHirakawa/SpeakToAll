@@ -3,7 +3,7 @@
 #define PLUGIN_NAME "Speak To All"
 #define PLUGIN_AUTHOR "Gabriel Hirakawa"
 #define PLUGIN_DESCRIPTION "Allows admins to speak to all players on command"
-#define PLUGIN_VERSION "1.0.1"
+#define PLUGIN_VERSION "1.0.2"
 #define PLUGIN_URL "https://gkh.systems"
 #define UPDATE_URL "https://gkh.systems/git/SpeakToAll/update.txt"
 
@@ -92,7 +92,7 @@ void MuteAll(int client)
 {
 	for (int i = 1; i < MaxClients; i++) {
 		if (IsClientInGame(i) && i != client) {
-			SetClientListeningFlags(i, (GetClientListeningFlags(client) | VOICE_MUTED));
+			SetClientListeningFlags(i, (GetClientListeningFlags(i) | VOICE_MUTED));
 			PrintToChat(i, "[SM] An admin is speaking to all players and therefore has muted you");
 			LogAction(i, -1, "%L toggled speak to all", client);
 		}
@@ -103,7 +103,7 @@ void UnMuteAll(int client)
 {
 	for (int i = 1; i < MaxClients; i++) {
 		if (IsClientInGame(i) && i != client) {
-			SetClientListeningFlags(i, (GetClientListeningFlags(client) | VOICE_NORMAL));
+			SetClientListeningFlags(i, (GetClientListeningFlags(i) | VOICE_NORMAL));
 			PrintToChat(i, "[SM] You are now unmuted");
 			LogAction(i, -1, "%L untoggled speak to all", client);
 		}
