@@ -4,7 +4,7 @@ sudo: false
 addons:
     apt_packages:
         - lib32stdc++6  # needed for spcomp
-
+        - lftp
 env:
     - SMVERSION=1.8
     - SMVERSION=1.9
@@ -30,6 +30,18 @@ before_script:
     - wget https://bitbucket.org/GoD_Tony/updater/raw/12181277db77d6117052b8ddf5810c7681745156/include/updater.inc
 
     - cd ../../../..
+
+deploy:
+  skip_cleanup: true
+  provider: releases
+  name: SpeakToAll $TRAVIS_TAG.$SMVERSION.$TRAVIS_JOB_ID
+  body: Automated release from Travis CI Build Number $TRAVIS_JOB_ID
+  api_key:
+    secure: eYZLMOWRcHhZAdy3r58XhZCljHHUqfieoGyKeZlefr5OSMoWLyQWaa0MBvgQ6HucZND01disFh4X6nb1fFBkRP22/uzaq5Orsv7kJ8Vom8TJG+BM4KkPcx1p0xLZJgY0RaVr76yneshVd0+3jUiFc8jQdmwCYUFMCrUxZaE9VhDemUTPkC9n/m4Uh7hC7A1ZfPL4jCQlHBX0xBnhTtqDsPzXPPbtcBKjk6DS1Er954YGamiiUmPyDRIcTEbwxdNVQqvYyvoDGJF6hdg0sLLhWWyg/p4QIPsz9LdzCmf5/+d5/m3NXQIfNO0XcgbZta//xXQuK3rrqn3GhJc9Yg92mHiEwWf/R+jVKhBIDR1Du++YVw5ZkeodIWeyMIyVPmwjIxbqfWeH2f6e8BwTesmYfecJgksoRNjCGv1YG12+UmjkOAyFpkiQ4VMOGprM9Jmv8QvCe+L2mbZh3JfPp7MFPjs1IU8AYyjREYjPdxXJj/RWi5P9Z4I8YvwZh6pARqoLzuxtBxQP0BFjbbFRGxvXxvhr97jWRmzh3Fvq21ruqrH1nPPnacJeSXE50ZFKMLm9Vhp7U56wR3uBP7SAZ4X589GUK4uo9Rc6bUdP/UTaNbczOHx0BqyHl3U6ObPxodgPWJPl9SP8twAxlE/FiLr6cWbVX/RDrvqvqX5PNP84VPA=
+  file: SteamFriendUtility/bin/Debug/SteamFriendUtility.exe
+  on:
+    repo: GabeHirakawa/SpeakToAll
+    tags: true
 
 script:
     - smbuilder --flags="-E"
