@@ -10,7 +10,7 @@
 #include <sourcemod>
 #include <sdktools>
 
-#undef REQUIRE_PLUGINz
+#undef REQUIRE_PLUGIN
 #include <updater>
 
 #pragma newdecls required
