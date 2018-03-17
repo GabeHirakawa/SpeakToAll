@@ -1,4 +1,4 @@
-Plugin(name='speaktoall', source='scripting/speaktoall')
+Plugin(name='speaktoall', source='scripting/speaktoall.sp')
 
 Package(name='speaktoall-base',
         plugins=[
