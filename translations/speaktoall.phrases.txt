@@ -1,0 +1,27 @@
+"Phrases"
+{
+	"STA_NonClientError"
+	{
+		"en"		"Usage: Clients not in game cannot use the speaktoall command."
+	}
+  "STA_Disable"
+  {
+    "en"    "You will no longer speak to all players."
+  }
+  "STA_Enable"
+  {
+    "en"    "You will now speak to all players."
+  }
+  "STA_RoundEnd"
+  {
+    "en"    "You are no longer speaking to all players due to the round ending."
+  }
+  "STA_MuteAll"
+  {
+    "en"    "An admin is speaking to all players and therefore has muted you."
+  }
+  "STA_UnMuteAll"
+  {
+    "en"    "You are now unmuted"
+  }
+}
