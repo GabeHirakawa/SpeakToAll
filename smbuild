@@ -10,6 +10,6 @@ Package(name='speaktoall-release',
         extends=['speaktoall-base'],
         plugins=Plugins('speaktoall.sp'),
         filegroups={
-            '.': ['LICENSE'],
+            '.': ['LICENSE.md'],
         },
 )
