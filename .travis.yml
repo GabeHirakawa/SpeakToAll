@@ -4,23 +4,28 @@ addons:
   - lib32stdc++6
   - lftp
 env:
+  matrix:
   - SMVERSION=1.8
   - SMVERSION=1.9
+  global:
+  - secure: hfDmXcGOczQhlGJ3ttdObeSXUUC5osa2wdOmtbDAoc3o1/iXILVqJYiRVuL3fASV5scvX6lAZsS26k/QDgX4yBEyUh4isoi/SlbNi9LxPOwp5VabdNPASqmM1z85eTiyEp7XZgfRDj7fjROgUi5cxpjmDGs8dM68ZPjFfftpbJC8t6iYXRt0RZrDOhWlpo6cye/FIrH1SqBhD/Au5JTJYEsR9nYyCtpeehJ5AGCxcZ8Y/lg8ty0FbMxwDVTqyIkpHUL0GOWoUDeFcuGhB5sRrw4fvRXn1wAs9D5qMdlJvaW67+2AOmenhfL0Va3Xm4ScGCVEQdTti5PWl9bplEmw62tMIR9haVfVrKMyvzYghyRLJtLmxnfRVwnHgsjTIT+sNmfnmby6ViXymg+gvbT3A7uhXOillRuvSMp7kbd1aRcvA5gXsVAEkBFRGqAdYvwKz3I46QDvdKDbP9OhCvv2w3iqaWC5g2eqU9XQ5d/Bdm7iR/zbf1uP89kjvN8dAEZKpIXQWJ6GfkwOgNpyTI1T2VflmEscDw64Yckze6zWm8Ln/G5Qy5nslL7Oz9ENNOZQ+xNhLe+uTNTV5YAL7iOQQ/5TJ3utNlFP3gIk+WUAmD6NP7oz0WvJQkCzgPNMVsVexQc3CVI4F1z9XuR3puvKLwaCrzcUF8ddgS6oLnN8YUg=
+  - secure: ZpLbVirJ1AHmTMUDdmqnOwN7i32ku0CWBItK1gyTO9S/phpNBadRU+XttJm4psLwcPGe/nLwK5mQWVhfZ9TTmrKGwk7d8XZMg6AbJJ92rvyFPqyMp8QghIAqCqr2UFSEkTNjp91ILiDIlc5/rlBegDMyid22Lhhqk/b9g2GwCzSs3LQ4lY13dDQEBjdYKqObiCmCj7ugV+Ufbz5SukyjImHCfAUeeYV/qPTtOjNT5wZJXLJIRWvtQ04ZvqygKXxKlKce2OsOQu/z7aqOqQLd+Yf19PUmcx3JlqoWh+0oCwJQZ2n2jr/BozbF1hNf8UAjUn3z3Vs8S2Uy0+efTdhgVikm8QWTw/QUKsThA+iIKrWeNDO2uiVJZir7l7fD3dndGKFK6D8JNX52SIXqK8HzxXvCGttARno5On55zV/h9jqp8cW77k2ouXKlnqL0GLBDwyFogkDvWvl5vdvZ0tP9hsha+/4NwuUY/79kdC1/xoOyfIQnk6EbRU38XuIVjPQma+nTobbByh37uQZqJdd7NYcKkd9PEplnjaMAgVv421MV9Ftkej+SmJFKYjDLi0VwiHjx6zmEqic46EtEV6PzL9MjQGL0grbjJ81ajqOBgai2A/wF3m3qI7NwGO0quyn4/OUKYAFY8/0loApUOAELrAv/+g4BibTbnsAD2qarE+M=
+  - secure: liY5rfc4f3wS7xAdgPXBll5qW9em9myiaCYs1obiFf/+BCHRo+Q1s+u5naOa5EyY4ZKYq/pP3fP57cdWkKuwf/WbvFCcNp3PwzaJNffKGQJLdHTvMwV/gHqKSdxFsQ/RCmYftE3C6laouMwsAISu+sP8s8+AdT5fWWGv8+d6Zj4+ah5GDgHelmGVGOtGJQk7PfK+3/rx4X0GO7T0UBEHRzI56VBL/5PDSCqVjePZpcmWUUNFzhAZQOIzKU9O9p7maxtsftHiFfjhDyBtG3dT+59Wkl2lV8UeCjhjzXknZkOdArHCvQrNpui5ZyGDE9WoZp/pap84RBFTX9Onsi4oWnZSk7MNhM+u+7vvje440AOLCS4rkX97CEC0Ng+ZiRZTrrPo0M002aHKG2mKU2l92ke9zxgDLoMSmUH07is6QGCXzEqRSRC5bImUZsHXI5B0vPZafEZGBRCQncWIPl0N8nqyrfoG8l+4/ItOb9Kqgl+YopT8SOJ8G8ymDCGLaudSy0vZsa9dBPJwfvdLWtt5sZt6F47Nro+J/GjCbCHA84Uaq+SDcf41wAum0NFifUCXxQ+BQp2ZEmF1VPPPTxdHTURo6tEWbRAQv7krG9HJOrqaChkpA2JyOgRtfhRS3GhO4ZBgn8K7Sp0YQLtvoM6sslDjzgRpQ0VfPW21MHLyCqI=
 before_script:
-  - git clone https://github.com/splewis/sm-builder
-  - cd sm-builder
-  - pip install --user -r requirements.txt
-  - python setup.py install --prefix=~/.local
-  - cd ..
-  - SMPACKAGE="http://sourcemod.net/latest.php?os=linux&version=${SMVERSION}"
-  - wget $SMPACKAGE
-  - tar xfz $(basename $SMPACKAGE)
-  - cd addons/sourcemod/scripting/
-  - chmod +x spcomp
-  - PATH+=":$PWD"
-  - cd include
-  - wget https://bitbucket.org/GoD_Tony/updater/raw/12181277db77d6117052b8ddf5810c7681745156/include/updater.inc
-  - cd ../../../..
+- git clone https://github.com/splewis/sm-builder
+- cd sm-builder
+- pip install --user -r requirements.txt
+- python setup.py install --prefix=~/.local
+- cd ..
+- SMPACKAGE="http://sourcemod.net/latest.php?os=linux&version=${SMVERSION}"
+- wget $SMPACKAGE
+- tar xfz $(basename $SMPACKAGE)
+- cd addons/sourcemod/scripting/
+- chmod +x spcomp
+- PATH+=":$PWD"
+- cd include
+- wget https://bitbucket.org/GoD_Tony/updater/raw/12181277db77d6117052b8ddf5810c7681745156/include/updater.inc
+- cd ../../../..
 deploy:
   skip_cleanup: true
   provider: releases
