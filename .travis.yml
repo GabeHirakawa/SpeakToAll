@@ -45,3 +45,7 @@ deploy:
 
 script:
     - smbuilder --flags="-E"
+
+after_script:
+    - zip ./builds/speaktoall-release.$SMVERSION-$TRAVIS_JOB_ID
+    - lftp -c "open -u $FTP_USER,$FTP_PASS $FTP_HOST; put -O files/ speaktoall-release.zip"
